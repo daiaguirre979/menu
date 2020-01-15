@@ -1,0 +1,33 @@
+USE [PRESUPUESTO_2019]
+GO
+
+/****** Object:  Table [dbo].[daisegurityLogin]    Script Date: 15/01/2020 03:39:40 p.m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[daisegurityLogin](
+	[sglid] [int] IDENTITY(1,1) NOT NULL,
+	[sglusername] [varchar](50) NULL,
+	[sglpassword] [varchar](50) NULL,
+	[sglroleid] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[sglid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[daisegurityLogin]  WITH CHECK ADD FOREIGN KEY([sglroleid])
+REFERENCES [dbo].[daisegurityRoles] ([sgrid])
+GO
+
